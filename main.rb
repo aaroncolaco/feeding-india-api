@@ -7,14 +7,13 @@ require 'mail'
 # Reload if in development mode
 require 'sinatra/reloader' if development?
 
-set :success, 'Successful'
-set :auth_error, 'Authentication Error'
-set :does_not_exist, 'Account does not exist'
-set :already_exists, 'Sorry. You already have an account. Please Sign in'
-set :no_img, 'No image url sent'
-set :not_found_error, "Not found"
-set :common_error, "Something boring happened"
-
+set :success, 'success'
+set :auth_error, 'auth_error'
+set :does_not_exist, 'does_not_exist'
+set :already_exists, 'already_exists'
+set :no_img, 'no_img_url'
+set :not_found_error, 'not_found'
+set :common_error, 'something_happened'
 
 # for development
 configure :development do
@@ -50,9 +49,8 @@ get '/:email' do
 end
 
 #sign_in
-post '/login/:email/:password' do
+post '/login/:email' do
 	login_email = params[:email].to_s
-	login_password = params[:password].to_s
 	
 	feeder = Feeders.first(:email => login_email)
 
@@ -60,24 +58,19 @@ post '/login/:email/:password' do
 		return settings.does_not_exist
 	end
 
-	if feeder.pass == login_password
-		content_type :json
-
-		{
-			:email => feeder.email,
-			:name => feeder.name,
-			:phone => feeder.phone,
-			:state => feeder.state,
-			:address => feeder.address,
-			:times_fed => feeder.times_fed
-		}.to_json
-	else
-		return settings.auth_error	
-	end
+	content_type :json
+	{
+		:email => feeder.email,
+		:name => feeder.name,
+		:phone => feeder.phone,
+		:state => feeder.state,
+		:address => feeder.address,
+		:times_fed => feeder.times_fed
+	}.to_json
 end
 
 #sign_up
-post '/feeders/:email/:password/:name/:phone/:state/:address' do
+post '/feeders/:email/:name/:phone/:state/:address' do
 
 	feeder = Feeders.first(:email => params[:email].to_s)
 
@@ -85,7 +78,6 @@ post '/feeders/:email/:password/:name/:phone/:state/:address' do
 		feeder = Feeders.new
 
 		feeder.email = params[:email].to_s
-		feeder.pass = params[:password].to_s
 		feeder.name = params[:name].to_s
 		feeder.phone = params[:phone].to_s
 		feeder.state = params[:state].to_s
@@ -95,7 +87,6 @@ post '/feeders/:email/:password/:name/:phone/:state/:address' do
 		feeder.save
 		
 		content_type :json
-
 		{
 			:email => feeder.email,
 			:name => feeder.name,
@@ -165,7 +156,7 @@ helpers do
 		options = { :address				=> "smtp.gmail.com",
 					:port					=> 587,
 					:domain					=> 'your.host.name',
-					:user_name				=> 'pccestuff@gmail.com',
+					:user_name				=> 'JohnDoe@gmail.com',
 					:password				=> '',
 					:authentication			=> 'plain',
 					:enable_starttls_auto	=> true  }

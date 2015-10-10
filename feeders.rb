@@ -5,7 +5,6 @@ class Feeders
 	include DataMapper::Resource
 	property :id, Serial
 	property :email, String
-	property :pass, String
 	property :name, String
 	property :phone, String
 	property :state, String
