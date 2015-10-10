@@ -1,0 +1,12 @@
+Feeders:
+  ID (DB generate)
+  Facebook Hash
+  Name
+  Email
+  Ph no
+  State
+  Address
+  Contributions
+
+ ☐ Add email in Production
+ 

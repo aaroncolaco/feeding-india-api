@@ -1,0 +1,1 @@
+Temp directory to store the image to send, and any other files
