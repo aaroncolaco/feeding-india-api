@@ -14,7 +14,7 @@ Send <b>GET</b> in format
 #### Possible replies
 * Account does not exist:
 ```
-Account does not exist
+does_not_exist
 ```
 * Success
 	- JSON in the form:
@@ -33,16 +33,12 @@ Account does not exist
 ## Sign in
 Send <b>POST</b> in format
 ```
-/login/:email/:password
+/login/:email
 ```
 #### Possible replies
 * Account does not exist:
 ```
-Account does not exist
-```
-* Authentication Error
-```
-Authentication Error
+does_not_exist
 ```
 * Success
 	- JSON in the form:
@@ -61,12 +57,12 @@ Authentication Error
 ## Sign up
 Send <b>POST</b> in format
 ```
-/feeders/:email/:password/:name/:phone/:state/:address
+/feeders/:email/:name/:phone/:state/:address
 ```
 #### Possible replies
 * Already exists
 ```
-Sorry. You already have an account. Please Sign in
+already_exists
 ```
 * Success
 	- JSON in the form:
@@ -90,13 +86,13 @@ Send <b>POST</b> in format
 #### Possible replies
 * No URL sent
 ```
-No image url sent
+no_img_url
 ```
 * Account does not exist:
 ```
-Account does not exist
+does_not_exist
 ```
 * Success
 ```
-Successful
+success
 ```
