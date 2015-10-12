@@ -85,7 +85,7 @@ Send <b>POST</b> in format
 ```
 ### Additional parameters
 ``` url ``` - URL to image
-``` location ``` - Address, or geo-location. Don't send to use default address
+``` location ``` - Address, or geo-location. To use default address, don't send location
 ``` foodtype ``` - veg/nonveg/both
 ``` packing ``` - packaged/notpackaged/both
 ``` foodfor ``` - number of people food will suffice for, roughly
