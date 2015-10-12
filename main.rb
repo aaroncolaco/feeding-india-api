@@ -28,7 +28,7 @@ configure :production do
 end
 
 get '/' do
-	'SendGrid'
+	'Using SendGrid to send emails to admin of this application'
 end
 
 get '/test' do
