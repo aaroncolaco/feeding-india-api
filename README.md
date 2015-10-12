@@ -84,11 +84,11 @@ Send <b>POST</b> in format
 /donation/:email/:description/:time
 ```
 ### Additional parameters
-``` url ``` - URL to image
-``` location ``` - Address, or geo-location. To use default address, don't send location
-``` foodtype ``` - veg/nonveg/both
-``` packing ``` - packaged/notpackaged/both
-``` foodfor ``` - number of people food will suffice for, roughly
+* ``` url ``` - URL to image
+* ``` location ``` - Address, or geo-location. To use default address, don't send
+* ``` foodtype ``` - veg/nonveg/both
+* ``` packing ``` - packaged/notpackaged/both
+* ``` foodfor ``` - number of people food will suffice for, roughly
 
 #### Possible replies
 * No URL sent
