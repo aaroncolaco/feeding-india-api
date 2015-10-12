@@ -2,23 +2,23 @@
 
 
 ## The base URL is
-```
+`
 https://feeding-india.herokuapp.com
-```
+`
 
 ## Retrieve user info
 Send <b>GET</b> in format
-```
+`
 /:email
-```
+`
 #### Possible replies
 * Account does not exist:
-```
+`
 does_not_exist
-```
+`
 * Success
 	- JSON in the form:
-	```
+	`
 	{
 	  "email": "foo@xyz.com",
 	  "name": "JohnDoe",
@@ -27,22 +27,22 @@ does_not_exist
 	  "address": "Middle Earth",
 	  "times_fed": * an integer value *
 	}
-	```
+	`
 
 
 ## Sign in
 Send <b>POST</b> in format
-```
+`
 /login/:email
-```
+`
 #### Possible replies
 * Account does not exist:
-```
+`
 does_not_exist
-```
+`
 * Success
 	- JSON in the form:
-	```
+	`
 	{
 	  "email": "foo@xyz.com",
 	  "name": "JohnDoe",
@@ -51,22 +51,22 @@ does_not_exist
 	  "address": "Middle Earth",
 	  "times_fed": * an integer value *
 	}
-	```
+	`
 
 
 ## Sign up
 Send <b>POST</b> in format
-```
+`
 /feeders/:email/:name/:phone/:state/:address
-```
+`
 #### Possible replies
 * Already exists
-```
+`
 already_exists
-```
+`
 * Success
 	- JSON in the form:
-	```
+	`
 	{
 	  "email": "foo@xyz.com",
 	  "name": "JohnDoe",
@@ -75,14 +75,14 @@ already_exists
 	  "address": "Middle Earth",
 	  "times_fed": * an integer value *
 	}
-	```
+	`
 
 
 ## Donate
 Send <b>POST</b> in format
-```
+`
 /donation/:email
-```
+`
 ### Additional parameters
 * ` url ` - URL to image. <b>Required</b>
 * ` description ` - description/note. <b>Required</b>
@@ -94,14 +94,14 @@ Send <b>POST</b> in format
 
 #### Possible replies
 * Insufficient parameters sent
-```
+`
 insufficient_parameters
-```
+`
 * Account does not exist:
-```
+`
 does_not_exist
-```
+`
 * Success
-```
+`
 success
-```
+`
