@@ -1,6 +1,7 @@
- ☐ Add email in Production
- ☐ Check if image in e-mail works under stress - or just put link instead of attachment
+ ✔ Add email in Production @done (15-10-12 21:26)
+ ✔ Check if image in e-mail works under stress - or just put link instead of attachment @done (15-10-13 01:57)
  ☐ Add pincode to signup
+ ☐ Validate parameters passed for donate & signup
  Donate:
    ✔ location @done (15-10-12 19:19)
    ✔ foodtype @done (15-10-12 19:19)
