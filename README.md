@@ -84,13 +84,13 @@ Send <b>POST</b> in format
 /donation/:email
 ```
 ### Additional parameters
-* ``` url ``` - URL to image. <b>Required</b>
-* ``` description ``` - description/note. <b>Required</b>
-* ``` time ``` - preferred pickup time. <b>Required</b>
-* ``` foodtype ``` - veg/nonveg/both. <b>Required</b>
-* ``` packing ``` - packaged/notpackaged/both. <b>Required</b>
-* ``` foodfor ``` - number of people food will suffice for, roughly. <b>Required</b>
-* ``` location ``` - Address, or geo-location. To use default address, don't send
+* ` url ` - URL to image. <b>Required</b>
+* ` description ` - description/note. <b>Required</b>
+* ` time ` - preferred pickup time. <b>Required</b>
+* ` foodtype ` - veg/nonveg/both. <b>Required</b>
+* ` packing ` - packaged/notpackaged/both. <b>Required</b>
+* ` foodfor ` - number of people food will suffice for, roughly. <b>Required</b>
+* ` location ` - Address, or geo-location. To use default address, don't send
 
 #### Possible replies
 * Insufficient parameters sent
