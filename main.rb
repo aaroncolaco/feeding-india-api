@@ -73,6 +73,12 @@ post '/feeders/:email' do
 			return settings.insufficient_parameters
 		end
 
+		if (name == '' || phone == '' ||
+			state == '' || address == '')
+			return settings.insufficient_parameters
+		end
+
+
 		feeder = Feeders.new
 
 		feeder.email = params[:email].to_s
@@ -117,6 +123,11 @@ post '/donation/:email' do
 	# Check if required parameters are present
 	if (url.nil? || description.nil? || time.nil? || 
 		foodtype.nil? || packing.nil? || foodfor.nil?)
+		return settings.insufficient_parameters
+	end
+
+	if (url == '' || description == '' || time == '' || 
+		foodtype == '' || packing == '' || foodfor == '')
 		return settings.insufficient_parameters
 	end
 
