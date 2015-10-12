@@ -9,6 +9,7 @@ class Feeders
 	property :phone, String
 	property :state, String
 	property :address, Text
+	property :pincode, String
 	property :times_fed, Integer
 
 	# validations
