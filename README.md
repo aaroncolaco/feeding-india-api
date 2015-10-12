@@ -17,7 +17,7 @@ Send <b>GET</b> in format
 does_not_exist
 ```
 * Success
-	*JSON in the form:
+	* JSON in the form:
 	```
 	{
 	  "email": "foo@xyz.com",
@@ -41,7 +41,7 @@ Send <b>POST</b> in format
 does_not_exist
 ```
 * Success
-	*JSON in the form:
+	* JSON in the form:
 	```
 	{
 	  "email": "foo@xyz.com",
