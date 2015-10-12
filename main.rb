@@ -56,32 +56,37 @@ post '/login/:email' do
 end
 
 # Sign up
-post '/feeders/:email/:name/:phone/:state/:address' do
+post '/feeders/:email' do
 
 	user_data = get_user(params[:email].to_s)
-
+	
 	if user_data.nil?
+
+		# Additional parameters passed
+		name = params[:name].to_s
+		phone = params[:phone].to_s
+		state = params[:state].to_s
+		address = params[:address].to_s
+
+		if (name.nil? || phone.nil? ||
+			state.nil? || address.nil?)
+			return settings.insufficient_parameters
+		end
+
 		feeder = Feeders.new
 
 		feeder.email = params[:email].to_s
-		feeder.name = params[:name].to_s
-		feeder.phone = params[:phone].to_s
-		feeder.state = params[:state].to_s
-		feeder.address = params[:address].to_s
-		# feeder.pincode = params[:pincode.to_s]
+		feeder.name = name
+		feeder.phone = phone
+		feeder.state = state
+		feeder.address = address
+		# feeder.pincode = params[:pincode].to_s
 		feeder.times_fed = 0
 
 		feeder.save
 		
 		content_type :json
-		{
-			:email => feeder.email,
-			:name => feeder.name,
-			:phone => feeder.phone,
-			:state => feeder.state,
-			:address => feeder.address,
-			:times_fed => feeder.times_fed
-		}.to_json
+		get_user(feeder.email).to_json
 	else
 		return settings.already_exists	
 	end
@@ -110,9 +115,8 @@ post '/donation/:email' do
 	location = params[:location].to_s
 
 	# Check if required parameters are present
-	if url.nil? || description.nil? || time.nil? || 
-		foodtype.nil? || packing.nil? || foodfor.nil?
-		
+	if (url.nil? || description.nil? || time.nil? || 
+		foodtype.nil? || packing.nil? || foodfor.nil?)
 		return settings.insufficient_parameters
 	end
 

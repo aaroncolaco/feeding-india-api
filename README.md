@@ -57,9 +57,19 @@ does_not_exist
 ## Sign up
 Send <b>POST</b> in format
 ```
-/feeders/:email/:name/:phone/:state/:address
+/feeders/:email
 ```
+### Additional parameters
+* ` name ` - User name. <b>Required</b>
+* ` phone ` - User ph no. <b>Required</b>
+* ` state ` - State in which located. <b>Required</b>
+* ` address ` - Default address for food pickups. <b>Required</b>
+
 #### Possible replies
+* Insufficient parameters sent
+```
+insufficient_parameters
+```
 * Already exists
 ```
 already_exists
