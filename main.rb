@@ -31,11 +31,6 @@ get '/' do
 	'Using SendGrid to send emails to admin of this application'
 end
 
-get '/test' do
-	status = send_mail("abc@google.com", "Description text", nil)
-	status
-end
-
 # Retrieve User Data
 get '/:email' do
 	user_data = get_user(params[:email].to_s)
