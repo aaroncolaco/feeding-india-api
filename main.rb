@@ -44,7 +44,7 @@ get '/:email' do
 end
 
 # Sign in
-post '/login/:email' do
+post '/signin/:email' do
 	user_data = get_user(params[:email].to_s)
 
 	if user_data.nil?
@@ -56,7 +56,7 @@ post '/login/:email' do
 end
 
 # Sign up
-post '/feeders/:email' do
+post '/signup/:email' do
 
 	user_data = get_user(params[:email].to_s)
 	
@@ -99,7 +99,7 @@ post '/feeders/:email' do
 end
 
 # Make donation
-post '/donation/:email' do
+post '/donate/:email' do
 
 	user_data = get_user(params[:email].to_s)
 

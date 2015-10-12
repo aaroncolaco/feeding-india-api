@@ -33,7 +33,7 @@ does_not_exist
 ## Sign in
 Send <b>POST</b> in format
 ```
-/login/:email
+/signin/:email
 ```
 #### Possible replies
 * Account does not exist:
@@ -57,7 +57,7 @@ does_not_exist
 ## Sign up
 Send <b>POST</b> in format
 ```
-/feeders/:email
+/signup/:email
 ```
 ### Additional parameters
 * ` name ` - User name. <b>Required</b>
@@ -91,7 +91,7 @@ already_exists
 ## Donate
 Send <b>POST</b> in format
 ```
-/donation/:email
+/donate/:email
 ```
 ### Additional parameters
 * ` url ` - URL to image. <b>Required</b>
