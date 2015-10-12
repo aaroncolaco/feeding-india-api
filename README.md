@@ -85,10 +85,10 @@ Send <b>POST</b> in format
 ```
 ### Additional parameters
 * ``` url ``` - URL to image. <b>Required</b>
+* ``` foodtype ``` - veg/nonveg/both. <b>Required</b>
+* ``` packing ``` - packaged/notpackaged/both. <b>Required</b>
+* ``` foodfor ``` - number of people food will suffice for, roughly. <b>Required</b>
 * ``` location ``` - Address, or geo-location. To use default address, don't send
-* ``` foodtype ``` - veg/nonveg/both
-* ``` packing ``` - packaged/notpackaged/both
-* ``` foodfor ``` - number of people food will suffice for, roughly
 
 #### Possible replies
 * No URL sent
