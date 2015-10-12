@@ -133,18 +133,17 @@ post '/donate/:email' do
 
 	food_info = "\n\nDescription: " + description + "\nFoodtype: " + foodtype + 
 		"\nPackaging: " + packing + "\nFood for: " + foodfor + 
-		"\nPreferable pickup time: " + time +
-		"\n\nImage: " + url
+		"\nPreferable pickup time: " + time
 
 	# If location not passed, use user's default address
 	if !location.nil?
-		food_info = food_info + "Location: " + location
+		food_info = food_info + "\nLocation: " + location
 	end
 
 	# Downloads file to attach it later
-	# File.open('tmp/image.png', 'wb') do |fo|
-	# 	fo.write open(url).read 
-	# end
+	File.open('tmp/image.png', 'wb') do |fo|
+		fo.write open(url).read 
+	end
 
 	status = send_mail(email, food_info, location)
 
@@ -246,7 +245,7 @@ helpers do
 			from 'donator@heroku.com'
 			subject 'Donation'
 			body donation_msg
-			# add_file "#{Dir.pwd}/tmp/image.png"
+			add_file "#{Dir.pwd}/tmp/image.png"
 		end
 
 		return settings.success
