@@ -243,7 +243,7 @@ helpers do
 
 		Mail.deliver do
 			to 'hungerheroes.developer@gmail.com'
-			from email
+			from 'donator@heroku.com'
 			subject 'Donation'
 			body donation_msg
 			# add_file "#{Dir.pwd}/tmp/image.png"
