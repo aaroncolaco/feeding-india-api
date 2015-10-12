@@ -17,7 +17,7 @@ Send <b>GET</b> in format
 does_not_exist
 ```
 * Success
-	- JSON in the form:
+	*JSON in the form:
 	```
 	{
 	  "email": "foo@xyz.com",
@@ -41,7 +41,7 @@ Send <b>POST</b> in format
 does_not_exist
 ```
 * Success
-	- JSON in the form:
+	*JSON in the form:
 	```
 	{
 	  "email": "foo@xyz.com",
@@ -75,7 +75,7 @@ insufficient_parameters
 already_exists
 ```
 * Success
-	- JSON in the form:
+	*JSON in the form:
 	```
 	{
 	  "email": "foo@xyz.com",
@@ -115,3 +115,9 @@ does_not_exist
 ```
 success
 ```
+
+
+## Note
+* Encode URL during requests
+	* Encode unsafe characters like `&` , `%`, `/`, `=`, `space` etc
+	* [Reference for encoding URL](http://www.w3schools.com/tags/ref_urlencode.asp)
