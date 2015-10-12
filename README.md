@@ -75,7 +75,7 @@ insufficient_parameters
 already_exists
 ```
 * Success
-	*JSON in the form:
+	* JSON in the form:
 	```
 	{
 	  "email": "foo@xyz.com",
