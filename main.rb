@@ -111,9 +111,9 @@ post '/donation/:email/:description/:time' do
 		return settings.no_img
 	end
 
-	food_info = "Description: " + description + "Foodtype: " + foodtype + 
-		"Packaging: " + packing + "Food for: " + foodfor + 
-		"Preferable pickup time: " + time
+	food_info = "\n\nDescription: " + description + "\nFoodtype: " + foodtype + 
+		"\nPackaging: " + packing + "\nFood for: " + foodfor + 
+		"\nPreferable pickup time: " + time
 
 	if !location.nil?
 		food_info = food_info + "Location: " + location
@@ -175,7 +175,7 @@ helpers do
 		donation_msg = "Email: " + email + "\nName: " + feeder.name + 
 			"\nPhone: " + feeder.phone + "\nState: " + feeder.state + 
 			# "\nPin-Code: " + feeder.pincode
-			+ "Times Donated:" + feeder.times_fed + "\n" + food_info
+			"\nTimes donated:" + feeder.times_fed.to_s + "\n" + food_info
 
 			if location.nil?
 				donation_msg = donation_msg + "\nAddress: " + feeder.address
@@ -183,49 +183,49 @@ helpers do
 
 
 		# Regular Mail
-		options = { :address				=> "smtp.gmail.com",
-					:port					=> 587,
-					:domain					=> 'your.host.name',
-					:user_name				=> 'pccestuff@gmail.com',
-					:password				=> '',
-					:authentication			=> 'plain',
-					:enable_starttls_auto	=> true  }
+		# options = { :address				=> "smtp.gmail.com",
+		# 			:port					=> 587,
+		# 			:domain					=> 'your.host.name',
+		# 			:user_name				=> 'pccestuff@gmail.com',
+		# 			:password				=> '',	# Add password here 
+		# 			:authentication			=> 'plain',
+		# 			:enable_starttls_auto	=> true  }
 
 
-		Mail.defaults do
-			delivery_method :smtp, options
-		end
+		# Mail.defaults do
+		# 	delivery_method :smtp, options
+		# end
 
-		Mail.deliver do
-			to 'hhlda@slipry.net' #'aldrichm69@gmail.com'
-			from "donator@xyz.com"
-			subject 'Food Donation'
-			body donation_msg
-			add_file "#{Dir.pwd}/tmp/image.png"
-		end
+		# Mail.deliver do
+		# 	to 'hhlda@slipry.net' #'aldrichm69@gmail.com'
+		# 	from "donator@xyz.com"
+		# 	subject 'Food Donation'
+		# 	body donation_msg
+		# 	add_file "#{Dir.pwd}/tmp/image.png"
+		# end
 
 		
 		# SendGrid Email
 
-		# Mail.defaults do
-		# 	delivery_method :smtp, {
-		# 		:address => 'smtp.sendgrid.net',
-		# 		:port => '587',
-		# 		:domain => 'heroku.com',
-		# 		:user_name => ENV['SENDGRID_USERNAME'],
-		# 		:password => ENV['SENDGRID_PASSWORD'],
-		# 		:authentication => :plain,
-		# 		:enable_starttls_auto => true
-		# 	}
-		# end
+		Mail.defaults do
+			delivery_method :smtp, {
+				:address => 'smtp.sendgrid.net',
+				:port => '587',
+				:domain => 'heroku.com',
+				:user_name => ENV['SENDGRID_USERNAME'],	# For testing put values
+				:password => ENV['SENDGRID_PASSWORD'],	# For testing put values
+				:authentication => :plain,
+				:enable_starttls_auto => true
+			}
+		end
 
-		# Mail.deliver do
-		# 	to 'example@example.com'
-		# 	from 'sender@example.comt'
-		# 	subject 'Donation'
-		# 	body donation_msg
-		# 	add_file "#{Dir.pwd}/tmp/image.png"
-		# end
+		Mail.deliver do
+			to ''
+			from email
+			subject 'Donation'
+			body donation_msg
+			add_file "#{Dir.pwd}/tmp/image.png"
+		end
 
 		return settings.success
 	end
