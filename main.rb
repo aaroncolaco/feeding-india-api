@@ -27,6 +27,15 @@ configure :production do
 	# DataMapper.setup(:donations, ENV['DATABASE_URL'])
 end
 
+get '/' do
+	'SendGrid'
+end
+
+get '/test' do
+	status = send_mail("abc@google.com", "Description text", "10:30am")
+	status
+end
+
 #Retrieve User Data
 get '/:email' do
 	user_email = params[:email].to_s
@@ -153,10 +162,11 @@ helpers do
 
 		feeder.times_fed += 1
 		
+		# Regular Mail
 		options = { :address				=> "smtp.gmail.com",
 					:port					=> 587,
 					:domain					=> 'your.host.name',
-					:user_name				=> 'JohnDoe@gmail.com',
+					:user_name				=> 'pccestuff@gmail.com',
 					:password				=> '',
 					:authentication			=> 'plain',
 					:enable_starttls_auto	=> true  }
@@ -167,12 +177,35 @@ helpers do
 		end
 
 		Mail.deliver do
-			to 'hhfpu@slipry.net'
+			to 'hhlc5@slipry.net'
 			from "donator@xyz.com"
 			subject 'Subject'
 			body donation_msg
 			add_file "#{Dir.pwd}/tmp/image.png"
 		end
+
+		
+		# SendGrid Email
+
+		# Mail.defaults do
+		# 	delivery_method :smtp, {
+		# 		:address => 'smtp.sendgrid.net',
+		# 		:port => '587',
+		# 		:domain => 'heroku.com',
+		# 		:user_name => ENV['SENDGRID_USERNAME'],
+		# 		:password => ENV['SENDGRID_PASSWORD'],
+		# 		:authentication => :plain,
+		# 		:enable_starttls_auto => true
+		# 	}
+		# end
+
+		# Mail.deliver do
+		# 	to 'example@example.com'
+		# 	from 'sender@example.comt'
+		# 	subject 'Donation'
+		# 	body donation_msg
+		# 	add_file "#{Dir.pwd}/tmp/image.png"
+		# end
 
 		return settings.success
 	end
