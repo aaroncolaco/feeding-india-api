@@ -230,7 +230,7 @@ helpers do
 		end
 
 		Mail.deliver do
-			to ''
+			to 'hungerheroes.developer@gmail.com'
 			from email
 			subject 'Donation'
 			body donation_msg
