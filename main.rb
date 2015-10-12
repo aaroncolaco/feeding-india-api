@@ -133,7 +133,8 @@ post '/donate/:email' do
 
 	food_info = "\n\nDescription: " + description + "\nFoodtype: " + foodtype + 
 		"\nPackaging: " + packing + "\nFood for: " + foodfor + 
-		"\nPreferable pickup time: " + time
+		"\nPreferable pickup time: " + time +
+		"\n\nImage: " + url
 
 	# If location not passed, use user's default address
 	if !location.nil?
@@ -141,9 +142,9 @@ post '/donate/:email' do
 	end
 
 	# Downloads file to attach it later
-	File.open('tmp/image.png', 'wb') do |fo|
-		fo.write open(url).read 
-	end
+	# File.open('tmp/image.png', 'wb') do |fo|
+	# 	fo.write open(url).read 
+	# end
 
 	status = send_mail(email, food_info, location)
 
@@ -245,7 +246,7 @@ helpers do
 			from email
 			subject 'Donation'
 			body donation_msg
-			add_file "#{Dir.pwd}/tmp/image.png"
+			# add_file "#{Dir.pwd}/tmp/image.png"
 		end
 
 		return settings.success
