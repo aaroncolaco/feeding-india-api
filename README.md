@@ -84,7 +84,7 @@ Send <b>POST</b> in format
 /donation/:email/:description/:time
 ```
 ### Additional parameters
-* ``` url ``` - URL to image <i>Required</i>
+* ``` url ``` - URL to image. <b> Required </b>
 * ``` location ``` - Address, or geo-location. To use default address, don't send
 * ``` foodtype ``` - veg/nonveg/both
 * ``` packing ``` - packaged/notpackaged/both
