@@ -25,6 +25,7 @@ does_not_exist
 	  "phone": "800000",
 	  "state": "The Shire",
 	  "address": "Middle Earth",
+	  "pincode: ": "400100"
 	  "times_fed": * an integer value *
 	}
 	```
@@ -49,6 +50,7 @@ does_not_exist
 	  "phone": "800000",
 	  "state": "The Shire",
 	  "address": "Middle Earth",
+	  "pincode: ": "400100"
 	  "times_fed": * an integer value *
 	}
 	```
@@ -73,6 +75,7 @@ already_exists
 	  "phone": "800000",
 	  "state": "The Shire",
 	  "address": "Middle Earth",
+	  "pincode: ": "400100"
 	  "times_fed": * an integer value *
 	}
 	```
@@ -81,8 +84,15 @@ already_exists
 ## Donate
 Send <b>POST</b> in format
 ```
-/donation/:email/:description/:time?url=image_URL_to_be_put_here
+/donation/:email/:description/:time
 ```
+### Additional parameters
+``` url ``` - URL to image
+``` location ``` - Address, or geo-location. Don't send to use default address
+``` foodtype ``` - veg/nonveg/both
+``` packing ``` - packaged/notpackaged/both
+``` foodfor ``` - number of people food will suffice for, roughly
+
 #### Possible replies
 * No URL sent
 ```
