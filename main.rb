@@ -11,7 +11,7 @@ set :success, 'success'
 set :auth_error, 'auth_error'
 set :does_not_exist, 'does_not_exist'
 set :already_exists, 'already_exists'
-set :no_img, 'no_img_url'
+set :insufficient_parameters, 'insufficient_parameters'
 set :not_found_error, 'not_found'
 set :common_error, 'something_happened'
 
@@ -88,7 +88,7 @@ post '/feeders/:email/:name/:phone/:state/:address' do
 end
 
 # Make donation
-post '/donation/:email/:description/:time' do
+post '/donation/:email' do
 
 	user_data = get_user(params[:email].to_s)
 
@@ -101,20 +101,26 @@ post '/donation/:email/:description/:time' do
 	time = params[:time].to_s
 
 	# Additional parameters passed
-	url = params[:url]
-	location = params[:location]
-	foodtype = params[:foodtype]
-	packing = params[:packing]
-	foodfor = params[:foodfor]
+	url = params[:url].to_s
+	description = params[:description].to_s
+	time = params[:time].to_s
+	foodtype = params[:foodtype].to_s
+	packing = params[:packing].to_s
+	foodfor = params[:foodfor].to_s
+	location = params[:location].to_s
 
-	if url.nil?
-		return settings.no_img
+	# Check if required parameters are present
+	if url.nil? || description.nil? || time.nil? || 
+		foodtype.nil? || packing.nil? || foodfor.nil?
+		
+		return settings.insufficient_parameters
 	end
 
 	food_info = "\n\nDescription: " + description + "\nFoodtype: " + foodtype + 
 		"\nPackaging: " + packing + "\nFood for: " + foodfor + 
 		"\nPreferable pickup time: " + time
 
+	# If location not passed, use user's default address
 	if !location.nil?
 		food_info = food_info + "Location: " + location
 	end
