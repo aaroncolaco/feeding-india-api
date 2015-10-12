@@ -25,7 +25,6 @@ does_not_exist
 	  "phone": "800000",
 	  "state": "The Shire",
 	  "address": "Middle Earth",
-	  "pincode: ": "400100"
 	  "times_fed": * an integer value *
 	}
 	```
@@ -50,7 +49,6 @@ does_not_exist
 	  "phone": "800000",
 	  "state": "The Shire",
 	  "address": "Middle Earth",
-	  "pincode: ": "400100"
 	  "times_fed": * an integer value *
 	}
 	```
@@ -75,7 +73,6 @@ already_exists
 	  "phone": "800000",
 	  "state": "The Shire",
 	  "address": "Middle Earth",
-	  "pincode: ": "400100"
 	  "times_fed": * an integer value *
 	}
 	```
