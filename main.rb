@@ -73,6 +73,7 @@ post '/feeders/:email/:name/:phone/:state/:address' do
 		feeder.phone = params[:phone].to_s
 		feeder.state = params[:state].to_s
 		feeder.address = params[:address].to_s
+		# feeder.pincode = params[:pincode.to_s]
 		feeder.times_fed = 0
 
 		feeder.save
@@ -158,7 +159,7 @@ helpers do
 			:phone => feeder.phone,
 			:state => feeder.state,
 			:address => feeder.address,
-			:pincode => feeder.pincode,
+			# :pincode => feeder.pincode,
 			:times_fed => feeder.times_fed
 		}
 		return user_data
@@ -178,8 +179,8 @@ helpers do
 		# Create message with donation data
 		donation_msg = "Email: " + email + "\nName: " + feeder.name + 
 			"\nPhone: " + feeder.phone + "\nState: " + feeder.state + 
-			"\nPin-Code: " + feeder.pincode + "Times Donated:" + feeder.times_fed +
-			"\n" + food_info
+			# "\nPin-Code: " + feeder.pincode
+			+ "Times Donated:" + feeder.times_fed + "\n" + food_info
 
 			if location.nil?
 				donation_msg = donation_msg + "\nAddress: " + feeder.address
