@@ -32,7 +32,7 @@ get '/' do
 end
 
 # Retrieve User Data
-get '/:email' do
+get '/feeders/:email' do
 	user_data = get_user(params[:email].to_s)
 
 	if user_data.nil?
