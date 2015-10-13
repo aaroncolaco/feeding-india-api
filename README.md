@@ -7,7 +7,7 @@ https://feeding-india.herokuapp.com
 ```
 
 ## Retrieve user info
-Send <b>GET</b> in format
+Send <b>GET</b> to
 ```
 /:email
 ```
@@ -31,7 +31,7 @@ does_not_exist
 
 
 ## Sign in
-Send <b>POST</b> in format
+Send <b>POST</b> to
 ```
 /signin/:email
 ```
@@ -55,7 +55,7 @@ does_not_exist
 
 
 ## Sign up
-Send <b>POST</b> in format
+Send <b>POST</b> to
 ```
 /signup/:email
 ```
@@ -89,7 +89,7 @@ already_exists
 
 
 ## Donate
-Send <b>POST</b> in format
+Send <b>POST</b> to
 ```
 /donate/:email
 ```
