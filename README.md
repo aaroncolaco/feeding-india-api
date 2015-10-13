@@ -9,7 +9,7 @@ https://feeding-india.herokuapp.com
 ## Retrieve user info
 Send <b>GET</b> to
 ```
-/:email
+/feeders/:email
 ```
 #### Possible replies
 * Account does not exist:
