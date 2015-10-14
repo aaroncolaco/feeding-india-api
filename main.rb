@@ -243,7 +243,7 @@ helpers do
 		end
 
 		Mail.deliver do
-			to 'hungerheroes.developer@gmail.com'
+			to 'feedingindia2025@gmail.com'
 			from 'donator@heroku.com'
 			subject 'Donation'
 			body donation_msg
