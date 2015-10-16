@@ -191,6 +191,8 @@ helpers do
 			return settings.does_not_exist
 		end
 
+		first_name = email.split('@').first
+
 		feeder.times_fed += 1
 		feeder.save
 
@@ -244,7 +246,7 @@ helpers do
 
 		Mail.deliver do
 			to 'hungerheroes.developer@gmail.com'
-			from 'donator@heroku.com'
+			from first_name + '@heroku.com'
 			subject 'Donation'
 			body donation_msg
 			# add_file "#{Dir.pwd}/tmp/image.png"
