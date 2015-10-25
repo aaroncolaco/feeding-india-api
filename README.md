@@ -20,12 +20,12 @@ does_not_exist
 	* JSON in the form:
 	```
 	{
-	  "email": "foo@xyz.com",
-	  "name": "JohnDoe",
+	  "email": "johndoe@xyz.com",
+	  "name": "John Doe",
 	  "phone": "800000",
 	  "state": "The Shire",
 	  "address": "Middle Earth",
-	  "times_fed": * an integer value *
+	  "times_fed": 5
 	}
 	```
 
@@ -44,12 +44,12 @@ does_not_exist
 	* JSON in the form:
 	```
 	{
-	  "email": "foo@xyz.com",
-	  "name": "JohnDoe",
+	  "email": "johndoe@xyz.com",
+	  "name": "John Doe",
 	  "phone": "800000",
 	  "state": "The Shire",
 	  "address": "Middle Earth",
-	  "times_fed": * an integer value *
+	  "times_fed": 5
 	}
 	```
 
@@ -78,12 +78,12 @@ already_exists
 	* JSON in the form:
 	```
 	{
-	  "email": "foo@xyz.com",
-	  "name": "JohnDoe",
+	  "email": "johndoe@xyz.com",
+	  "name": "John Doe",
 	  "phone": "800000",
 	  "state": "The Shire",
 	  "address": "Middle Earth",
-	  "times_fed": * an integer value *
+	  "times_fed": 5
 	}
 	```
 
